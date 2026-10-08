@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength & Conditioning | Build Your Power</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Programs Section */
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .program-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Exercises Section */
+        .exercises {
+            background-color: var(--light);
+            padding: 4rem 0;
+        }
+
+        .exercise-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .exercise-content {
+            display: none;
+        }
+
+        .exercise-content.active {
+            display: block;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .exercise-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .exercise-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .exercise-info {
+            padding: 1.2rem;
+        }
+
+        .exercise-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .exercise-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .difficulty.beginner {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.intermediate {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.advanced {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 4rem 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .resource-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .nav-menu.active {
+                display: block;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+            }
+
+            .nav-menu ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i>💪</i> STRENGTH<span>ZONE</span>
+            </a>
+            <div class="mobile-menu">☰</div>
+            <nav class="nav-menu">
+                <!-- <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Exercises</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul> -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Build Your Strength, Transform Your Body</h1>
+            <p>Discover proven training programs, expert techniques, and resources to maximize your strength and conditioning potential.</p>
+            <a href="#" class="btn">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training Programs</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="program-content">
+                        <h3>Beginner Strength</h3>
+                        <p>Perfect for those new to strength training. Build a solid foundation with proper form and technique.</p>
+                        <div class="program-meta">
+                            <span>12 Weeks</span>
+                            <span>3 Days/Week</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="program-content">
+                        <h3>Powerlifting Pro</h3>
+                        <p>Maximize your strength in squat, bench press, and deadlift. Designed for intermediate to advanced lifters.</p>
+                        <div class="program-meta">
+                            <span>16 Weeks</span>
+                            <span>4 Days/Week</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="program-content">
+                        <h3>Conditioning & Endurance</h3>
+                        <p>Improve your cardiovascular fitness while maintaining strength. Ideal for athletes.</p>
+                        <div class="program-meta">
+                            <span>8 Weeks</span>
+                            <span>5 Days/Week</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercises Section -->
+    <section class="exercises">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Exercises</h2>
+            </div>
+            <div class="exercise-tabs">
+                <button class="tab-btn active" data-tab="compound">Compound Lifts</button>
+                <button class="tab-btn" data-tab="accessory">Accessory Movements</button>
+                <button class="tab-btn" data-tab="bodyweight">Bodyweight Exercises</button>
+            </div>
+            <div class="exercise-content active" id="compound">
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Barbell Squat</h3>
+                            <p>The king of lower body exercises. Builds leg strength and overall power.</p>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Deadlift</h3>
+                            <p>Develops posterior chain strength and full-body power.</p>
+                            <span class="difficulty advanced">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Bench Press</h3>
+                            <p>The ultimate upper body strength builder for chest, shoulders, and triceps.</p>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="exercise-content" id="accessory">
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Dumbbell Rows</h3>
+                            <p>Build a strong back and improve posture with this essential pulling movement.</p>
+                            <span class="difficulty beginner">Beginner</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Overhead Press</h3>
+                            <p>Develop shoulder strength and stability with this fundamental pushing exercise.</p>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Bulgarian Split Squats</h3>
+                            <p>Improve leg strength, balance, and address muscle imbalances.</p>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="exercise-content" id="bodyweight">
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Push-Ups</h3>
+                            <p>The classic bodyweight exercise for chest, shoulders, and core strength.</p>
+                            <span class="difficulty beginner">Beginner</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Pull-Ups</h3>
+                            <p>Build impressive upper body strength with this challenging bodyweight exercise.</p>
+                            <span class="difficulty intermediate">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="exercise-info">
+                            <h3>Pistol Squats</h3>
+                            <p>Advanced single-leg squat that develops incredible leg strength and balance.</p>
+                            <span class="difficulty advanced">Advanced</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training Resources</h2>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📊</div>
+                    <h3>Workout Planner</h3>
+                    <p>Plan and track your workouts with our customizable training templates.</p>
+                    <a href="#" class="btn">Access Planner</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h3>Exercise Library</h3>
+                    <p>Browse our extensive database of exercises with detailed instructions and videos.</p>
+                    <a href="#" class="btn">Browse Exercises</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🍎</div>
+                    <h3>Nutrition Guide</h3>
+                    <p>Learn how to fuel your body for optimal strength gains and recovery.</p>
+                    <a href="#" class="btn">View Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>StrengthZone</h3>
+                    <p>Your ultimate resource for strength training and conditioning. Build power, transform your body, and achieve your fitness goals.</p>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>t</i></a>
+                        <a href="#"><i>in</i></a>
+                        <a href="#"><i>ig</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Programs</a></li>
+                        <li><a href="#">Exercises</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Beginner Strength</a></li>
+                        <li><a href="#">Powerlifting Pro</a></li>
+                        <li><a href="#">Conditioning & Endurance</a></li>
+                        <li><a href="#">Bodyweight Mastery</a></li>
+                        <li><a href="#">Custom Programs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@strengthzone.com</li>
+                        <li>Phone: (123) 456-7890</li>
+                        <li>Address: 123 Fitness St, Gym City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 StrengthZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.exercise-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.matches-table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.matches-table th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.matches-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.matches-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.matches-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+}

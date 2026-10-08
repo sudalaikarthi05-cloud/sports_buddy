@@ -1,0 +1,45 @@
+.join-form {
+    background: #f8f9fa;
+    padding: 20px;
+    max-width: 400px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.join-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.join-form select {
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.join-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.join-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.join-form button:hover {
+    background-color: #0056b3;
+}

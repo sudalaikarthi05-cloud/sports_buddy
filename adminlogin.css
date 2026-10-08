@@ -1,0 +1,65 @@
+
+    body {
+        background: linear-gradient(135deg, #1a1a1a, #0f2027);
+        color: white;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    form {
+        background: rgba(40, 40, 40, 0.95);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    input, button {
+        padding: 12px;
+        width: 100%;
+        margin: 8px 0;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    input {
+        background: #2c2c2c;
+        color: white;
+    }
+
+    input:focus {
+        background: #333;
+        outline: none;
+        box-shadow: 0 0 5px #28a745;
+    }
+
+    button {
+        background: linear-gradient(45deg, #28a745, #218838);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: linear-gradient(45deg, #34d058, #28a745);
+        box-shadow: 0 0 10px #28a745;
+    }
+
+    .error {
+        color: #ff4d4d;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+

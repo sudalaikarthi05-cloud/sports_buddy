@@ -1,0 +1,91 @@
+/* CSS for Sports Buddy Register Page */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    width: 300px;
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+   
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+select {
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+select option{
+    color:black;
+    background-color:#fff;
+}
+
+input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px #00c6ff;
+}
+
+button[name="register"] {
+   
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #00c6ff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[name="register"]:hover {
+    background-color: #0072ff;
+}

@@ -1,0 +1,97 @@
+/* dashboard.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000; /* old gradient (#141e30 -> #243b55) removed */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ===== Moving sports background ===== */
+.bg-slider {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+/* dark layer so the text stays readable */
+.bg-slider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.bg-slider span {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: slideFade 20s infinite, kenBurns 10s ease-in-out infinite alternate;
+}
+
+/* Each sports image appears five seconds after the previous one. */
+.bg-slider span:nth-child(1) { background-image: url('images/dashboard-cricket.png'); animation-delay: 0s, 0s; }
+.bg-slider span:nth-child(2) { background-image: url('images/dashboard-football.png'); animation-delay: 5s, 0s; }
+.bg-slider span:nth-child(3) { background-image: url('images/dashboard-volleyball.png'); animation-delay: 10s, 0s; }
+.bg-slider span:nth-child(4) { background-image: url('images/dashboard-tennis.png'); animation-delay: 15s, 0s; }
+
+@keyframes slideFade {
+  0%, 1%, 25%, 100% { opacity: 0; }
+  2%, 24% { opacity: 1; }
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.15) translate(-2%, -2%); }
+}
+
+/* ===== Page content ===== */
+.dashboard-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.dashboard-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #0089ff78;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-content p {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard-content a {
+  text-decoration: none;
+  background-color: #0000005e;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-content a:hover {
+  background-color: #0000005e;
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-slider span {
+    animation: slideFade 20s infinite;
+  }
+}

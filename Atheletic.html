@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletic Training | Learn More</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-title {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .category-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-section h2 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .info-section p {
+            margin-bottom: 15px;
+        }
+        
+        .features-list {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+        
+        .features-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features-list li:before {
+            content: "🏆";
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .category-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .training-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .training-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .training-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .training-card h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .training-card h3 span {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            color: #ff6b6b;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats, .training-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="category-title">Athletic Training</h1>
+            <p class="category-description">Maximize performance, prevent injuries, and achieve your athletic goals with professional training programs.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="info-section">
+                <h2>About Athletic Training</h2>
+                <p>Athletic training encompasses the prevention, diagnosis, and intervention of emergency, acute, and chronic medical conditions involving impairment, functional limitations, and disabilities.</p>
+                
+                <p>Our certified athletic trainers work with athletes of all levels to optimize performance, reduce injury risk, and provide rehabilitation when injuries occur.</p>
+                
+                <h2>Training Benefits</h2>
+                <ul class="features-list">
+                    <li>Improved athletic performance and endurance</li>
+                    <li>Reduced risk of sports-related injuries</li>
+                    <li>Faster recovery from workouts and competitions</li>
+                    <li>Enhanced flexibility and mobility</li>
+                    <li>Proper technique and form development</li>
+                    <li>Personalized training programs</li>
+                    <li>Nutrition and recovery guidance</li>
+                    <li>Mental conditioning and focus training</li>
+                </ul>
+                
+                <a href="#" class="cta-button">Start Your Training Program</a>
+            </div>
+            
+            <div class="image-section">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Athletic Training" class="category-image">
+                
+                <div class="info-section">
+                    <h2>Training Philosophy</h2>
+                    <p>We believe in a holistic approach to athletic training that addresses physical conditioning, mental preparation, nutrition, and recovery. Our programs are tailored to individual needs, goals, and sport-specific requirements.</p>
+                    
+                    <p>Whether you're a professional athlete or a weekend warrior, our evidence-based training methods will help you reach your full potential while minimizing injury risks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="training-types">
+            <div class="training-card">
+                <h3><span>💪</span> Strength Training</h3>
+                <p>Build muscle power, increase strength, and improve overall athletic performance with targeted resistance training programs.</p>
+            </div>
+            
+            <div class="training-card">
+                <h3><span>🏃</span> Endurance Training</h3>
+                <p>Enhance cardiovascular fitness, stamina, and recovery with specialized endurance protocols for your sport.</p>
+            </div>
+            
+            <div class="training-card">
+                <h3><span>🤸</span> Flexibility & Mobility</h3>
+                <p>Improve range of motion, prevent injuries, and enhance performance with dynamic stretching and mobility work.</p>
+            </div>
+            
+            <div class="training-card">
+                <h3><span>🧠</span> Mental Conditioning</h3>
+                <p>Develop focus, resilience, and competitive mindset through visualization and psychological training techniques.</p>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">45%</div>
+                <div class="stat-label">Reduction in injury rates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">18%</div>
+                <div class="stat-label">Average performance improvement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">92%</div>
+                <div class="stat-label">Athlete satisfaction rate</div>
+            </div>
+        </div>
+        
+        <div class="testimonial">
+            <p class="testimonial-text">"The athletic training program completely transformed my performance. I've set personal records in my sport and feel stronger and more resilient than ever before. The personalized approach made all the difference."</p>
+            <p class="testimonial-author">- Sarah Johnson, Professional Track Athlete</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Athletic Training Program. All rights reserved.</p>
+            <p>Contact us: sportsbuddy@gmail.com |9876543210</p>
+        </div>
+    </footer>
+</body>
+</html>
